@@ -121,7 +121,7 @@ export default function HomePage() {
             <div className="flex-1 w-full relative">
               <img 
                 src={carWashImg} 
-                alt="Professional Cleaning"
+                alt="Okar Ehha Professional Cleaning Services"
                 className="w-full aspect-[4/3] object-cover rounded-3xl"
               />
               <div className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-xl shadow-lg flex items-center gap-2">
