@@ -3,26 +3,19 @@ import { servicesData } from "../data/services";
 import { CheckCircle2, ShieldCheck, Clock, MapPin } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
-export default function ServiceDetailPage() {
-  const { slug } = useParams<{ slug: string }>();
+export default function ServiceDetailPage({ serviceSlug }: { serviceSlug?: string }) {
+  const { slug: paramSlug } = useParams<{ slug: string }>();
+  const slug = serviceSlug || paramSlug;
   const service = slug ? servicesData[slug] : null;
 
   if (!service) {
     return <Navigate to="/services" replace />;
   }
   
-  // Create SEO-friendly titles and descriptions
-  let seoTitle = `${service.title} | Okar Ehha | Korba`;
-  let seoDescription = service.shortDescription;
-  
-  if (slug === 'car-wash') {
-    seoTitle = 'Okar Ehha Car Wash Services | Doorstep Car Wash in Korba';
-    seoDescription = 'Professional doorstep car wash services in Korba. Book Okar Ehha for convenient car cleaning at your doorstep.';
-  } else if (slug === 'sofa-cleaning') {
-    seoTitle = 'Okar Ehha Sofa Cleaning | Doorstep Sofa Cleaning in Korba';
-  } else if (slug === 'water-tank-cleaning') {
-    seoTitle = 'Okar Ehha Water Tank Cleaning | Korba';
-  }
+  // Use custom SEO data if available, fallback to defaults
+  const seoTitle = service.seoTitle || `${service.title} in Korba | Okar Ehha`;
+  const seoDescription = service.seoDescription || service.fullDescription;
+  const canonicalUrl = `https://okarehha.in/${service.slug}`;
 
   return (
     <div className="bg-white min-h-screen pb-24">
@@ -31,6 +24,7 @@ export default function ServiceDetailPage() {
         <meta name="description" content={seoDescription} />
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDescription} />
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       
       {/* Hero Section */}

@@ -107,7 +107,7 @@ export default function ServicesPage() {
                       <span className="font-bold text-gray-900 text-base">₹{service.startingPrice}</span>
                     </div>
                     <Link 
-                      to={`/services/${service.slug}`}
+                      to={`/${service.slug}`}
                       className="bg-white text-gray-900 border border-gray-200 px-5 py-2 rounded-lg text-sm font-bold hover:bg-gray-50 transition-colors"
                     >
                       View Details

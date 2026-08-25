@@ -35,9 +35,11 @@ export default function HomePage() {
     <div className="pt-16 min-h-screen bg-gray-50">
       <Helmet>
         <title>Okar Ehha | Premium Car Wash & Doorstep Cleaning Services</title>
-        <meta name="description" content="Okar Ehha provides premium doorstep car wash, interior cleaning, polishing and home cleaning services in Korba. Professional service at your doorstep. Services starting from ₹99." />
+        <meta name="description" content="Okar Ehha provides professional doorstep car wash, interior cleaning, polishing and detailing services in Korba. Premium car care at your doorstep." />
         <meta property="og:title" content="Okar Ehha | Premium Car Wash & Doorstep Cleaning Services" />
-        <meta property="og:description" content="Okar Ehha provides premium doorstep car wash, interior cleaning, polishing and home cleaning services in Korba. Professional service at your doorstep. Services starting from ₹99." />
+        <meta property="og:description" content="Okar Ehha provides professional doorstep car wash, interior cleaning, polishing and detailing services in Korba. Premium car care at your doorstep." />
+        <meta property="og:site_name" content="Okar Ehha" />
+        <link rel="canonical" href="https://okarehha.in/" />
       </Helmet>
       {/* Hero Section */}
       <section className="bg-white border-b border-gray-100">
@@ -85,7 +87,7 @@ export default function HomePage() {
             {Object.values(servicesData).slice(0, 5).map((service) => (
               <Link 
                 key={service.id} 
-                to={`/services/${service.slug}`}
+                to={`/${service.slug}`}
                 className="flex flex-col items-center justify-center p-3 md:p-5 rounded-2xl hover:bg-gray-50 transition-colors group"
               >
                 <div className="w-16 h-16 md:w-24 md:h-24 bg-gray-50 border-2 border-transparent rounded-2xl flex items-center justify-center mb-3 group-hover:border-black/5 group-hover:shadow-lg transition-all overflow-hidden relative shadow-sm">
@@ -187,7 +189,7 @@ export default function HomePage() {
                         <span className="font-bold text-gray-900">₹{service.startingPrice}</span>
                       </div>
                       <Link 
-                        to={`/services/${service.slug}`}
+                        to={`/${service.slug}`}
                         className="bg-white text-gray-900 border border-gray-200 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-50 transition-colors"
                       >
                         Book

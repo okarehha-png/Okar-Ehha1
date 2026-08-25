@@ -21,82 +21,13 @@ export interface ServiceData {
   reviews: number;
   packages: Package[];
   faqs: { question: string; answer: string }[];
-  seoTitle?: string;
-  seoDescription?: string;
 }
 
 export const servicesData: Record<string, ServiceData> = {
-  "interior-cleaning": {
-    id: "interior-cleaning",
-    title: "Car Interior Cleaning",
-    slug: "interior-cleaning",
-    seoTitle: "Car Interior Cleaning in Korba | Okar Ehha",
-    seoDescription: "Professional car interior cleaning services in Korba. Deep cleaning for seats, roof, and dashboard.",
-    shortDescription: "Deep cleaning for your car's interior.",
-    fullDescription: "Restore your car's interior to a brand new feel with our deep interior cleaning service in Korba. We clean seats, roof, flooring, and dashboard with premium products.",
-    icon: "Sparkles",
-    image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    startingPrice: 599,
-    rating: 4.8,
-    reviews: 86,
-    packages: [
-      { id: "ic-hatchback", name: "Hatchback", price: 599, features: ["Vacuuming", "Seat Cleaning", "Dashboard Polish"] },
-      { id: "ic-sedan", name: "Sedan", price: 799, features: ["Vacuuming", "Seat Cleaning", "Roof Cleaning", "Dashboard Polish"] },
-      { id: "ic-suv", name: "SUV", price: 999, features: ["Vacuuming", "Seat Cleaning", "Roof Cleaning", "Dashboard Polish", "Deep Stain Removal"] }
-    ],
-    faqs: [
-      { question: "How long does it take?", answer: "Usually 2-3 hours depending on the car size." }
-    ]
-  },
-  "car-detailing": {
-    id: "car-detailing",
-    title: "Car Polishing & Detailing",
-    slug: "car-detailing",
-    seoTitle: "Car Polishing & Detailing in Korba | Okar Ehha",
-    seoDescription: "Premium car polishing and detailing services in Korba. Restore your car's shine right at your doorstep.",
-    shortDescription: "Exterior polishing and paint protection.",
-    fullDescription: "Professional car detailing and polishing in Korba. We remove minor scratches, swirl marks, and restore the showroom shine of your car's paint.",
-    icon: "Star",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    startingPrice: 999,
-    rating: 4.9,
-    reviews: 112,
-    packages: [
-      { id: "cd-exterior", name: "Exterior Polishing", price: 999, features: ["Washing", "Compounding", "Polishing", "Waxing"] },
-      { id: "cd-full", name: "Full Detailing", price: 1999, features: ["Exterior Polishing", "Interior Deep Cleaning", "Engine Bay Cleaning"] }
-    ],
-    faqs: [
-      { question: "Does it remove scratches?", answer: "It removes minor surface scratches and swirl marks." }
-    ]
-  },
-  "monthly-car-wash": {
-    id: "monthly-car-wash",
-    title: "Monthly Car Wash Plans",
-    slug: "monthly-car-wash",
-    seoTitle: "Monthly Car Wash Plans in Korba | Okar Ehha",
-    seoDescription: "Subscribe to Okar Ehha's monthly doorstep car wash plans in Korba. Keep your car clean every day.",
-    shortDescription: "Daily and weekly car cleaning subscriptions.",
-    fullDescription: "Keep your car spotless all month long with our monthly car wash plans in Korba. Reliable doorstep service tailored to your schedule.",
-    icon: "Calendar",
-    image: "https://images.unsplash.com/photo-1552930294-6b595f4c2974?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    startingPrice: 599,
-    rating: 4.7,
-    reviews: 245,
-    packages: [
-      { id: "mcw-weekly", name: "Weekly Plan", price: 599, features: ["4 Washes a month", "Exterior Foam Wash", "Interior Vacuum (Once)"] },
-      { id: "mcw-daily", name: "Daily Plan", price: 1499, features: ["26 Washes a month", "Daily Exterior Dusting/Wash", "Weekly Interior Vacuum"] }
-    ],
-    faqs: [
-      { question: "Can I pause my subscription?", answer: "Yes, you can pause your plan if you are traveling." }
-    ]
-  },
-
   "car-wash": {
     id: "car-wash",
     title: "Doorstep Car Wash",
     slug: "car-wash",
-    seoTitle: "Doorstep Car Wash in Korba | Okar Ehha",
-    seoDescription: "Professional doorstep car wash services in Korba. Book Okar Ehha for convenient car cleaning at your doorstep.",
     shortDescription: "Professional car cleaning at your doorstep.",
     fullDescription: "Get your car looking brand new with our professional doorstep car wash services. We bring our own equipment and use premium cleaning products.",
     icon: "Car",
@@ -162,8 +93,6 @@ export const servicesData: Record<string, ServiceData> = {
     id: "sofa-cleaning",
     title: "Sofa Cleaning",
     slug: "sofa-cleaning",
-    seoTitle: "Sofa Cleaning Service in Korba | Okar Ehha",
-    seoDescription: "Professional sofa dry cleaning service in Korba. We remove dust, stains, and allergens right at your doorstep.",
     shortDescription: "Deep cleaning for your sofas & couches.",
     fullDescription: "Revitalize your living room with our professional sofa dry cleaning service. We remove dust, stains, and allergens.",
     icon: "Sofa",
@@ -187,8 +116,6 @@ export const servicesData: Record<string, ServiceData> = {
     id: "water-tank-cleaning",
     title: "Water Tank Cleaning",
     slug: "water-tank-cleaning",
-    seoTitle: "Water Tank Cleaning in Korba | Okar Ehha",
-    seoDescription: "Ensure your family's health with our mechanized water tank cleaning process in Korba. Professional & safe.",
     shortDescription: "Mechanized water tank cleaning.",
     fullDescription: "Ensure your family's health with our 6-stage mechanized water tank cleaning process. Removes sludge, algae, and bacteria.",
     icon: "Droplets",
