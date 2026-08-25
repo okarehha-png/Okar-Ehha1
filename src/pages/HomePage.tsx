@@ -51,7 +51,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 mb-6"
             >
-              Home services, on demand.
+              Okar Ehha | Premium Car Wash & Doorstep Cleaning Services
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 15 }}
@@ -59,8 +59,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
               className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed"
             >
-              Professional doorstep cleaning services in Korba. Fast, reliable, and hassle-free.
-            </motion.p>
+              Okar Ehha provides professional doorstep car wash, interior cleaning, polishing and detailing services in Korba. Premium car care at your doorstep.</motion.p>
             
             {/* Search Bar */}
             <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 overflow-hidden">
