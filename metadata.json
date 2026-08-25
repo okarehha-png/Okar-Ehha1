@@ -1,0 +1,10 @@
+{
+  "name": "Remix: Okar Ehha - Doorstep Cleaning",
+  "description": "Professional Cleaning Services at Your Doorstep",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
