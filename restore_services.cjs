@@ -1,4 +1,6 @@
-import waterTankImg from '../assets/images/white_sintex_tank_cleaning_1787639372101.jpg';
+const fs = require('fs');
+
+let servicesContent = `import waterTankImg from '../assets/images/white_sintex_tank_cleaning_1787639372101.jpg';
 import homeCleaningImg from '../assets/images/man_cleaning_home_1787638533125.jpg';
 
 export interface Package {
@@ -230,3 +232,6 @@ export const popularServices = [
   "home-cleaning",
   "solar-panel-cleaning"
 ];
+`;
+
+fs.writeFileSync('src/data/services.ts', servicesContent);

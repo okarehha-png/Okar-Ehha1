@@ -46,7 +46,8 @@ export default function Footer() {
             <h3 className="text-[11px] uppercase tracking-widest text-gray-500 font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li><Link to="/" className="text-gray-600 hover:text-black transition-colors text-sm">Home</Link></li>
-              <li><Link to="/car-wash" className="text-gray-600 hover:text-black transition-colors text-sm">Car Wash Services</Link></li>
+              <li><Link to="/car-wash" className="text-gray-600 hover:text-black transition-colors text-sm">Car Wash</Link></li>
+              <li><Link to="/bike-wash" className="text-gray-600 hover:text-black transition-colors text-sm">Bike Wash</Link></li>
               <li><Link to="/sofa-cleaning" className="text-gray-600 hover:text-black transition-colors text-sm">Sofa Cleaning</Link></li>
               <li><Link to="/water-tank-cleaning" className="text-gray-600 hover:text-black transition-colors text-sm">Water Tank Cleaning</Link></li>
               <li><Link to="/book" className="text-gray-600 hover:text-black transition-colors text-sm">Book Service</Link></li>
@@ -74,19 +75,6 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-12">
-            <div className="text-gray-900 text-xs md:text-left max-w-2xl">
-              <p className="font-medium mb-1">Okar Ehha | Premium Car Wash & Doorstep Cleaning Services</p>
-              <p className="text-gray-500 mb-2 leading-relaxed">
-                Okar Ehha provides professional doorstep car wash, interior cleaning, polishing and detailing services in Korba. Premium car care at your doorstep.
-              </p>
-              <p className="text-gray-500 text-[10px] leading-relaxed">
-                Our genuine services include: Doorstep Car Wash, Foam Wash, Interior Cleaning, Car Polishing & Detailing, Tyre & Alloy Cleaning, Sofa Cleaning, Water Tank Cleaning, and Monthly Car Wash Plans.
-              </p>
-            </div>
-          </div>
-        </div>
         <div className="mt-8 pt-4 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-gray-100">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-12">
             <p className="text-gray-900 text-[11px] font-medium text-center md:text-left">

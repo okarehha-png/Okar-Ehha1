@@ -10,16 +10,8 @@
     <lastmod>2026-08-25</lastmod>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://okarehha.in/interior-cleaning</loc>
-    <lastmod>2026-08-25</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://okarehha.in/car-detailing</loc>
-    <lastmod>2026-08-25</lastmod>
-    <priority>0.9</priority>
-  </url>
+  
+  
   <url>
     <loc>https://okarehha.in/sofa-cleaning</loc>
     <lastmod>2026-08-25</lastmod>
@@ -30,11 +22,7 @@
     <lastmod>2026-08-25</lastmod>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://okarehha.in/monthly-car-wash</loc>
-    <lastmod>2026-08-25</lastmod>
-    <priority>0.8</priority>
-  </url>
+  
   <url>
     <loc>https://okarehha.in/about</loc>
     <lastmod>2026-08-25</lastmod>
@@ -49,5 +37,35 @@
     <loc>https://okarehha.in/services</loc>
     <lastmod>2026-08-25</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://okarehha.in/bike-wash</loc>
+    <lastmod>2026-08-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://okarehha.in/interior-cleaning</loc>
+    <lastmod>2026-08-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://okarehha.in/car-detailing</loc>
+    <lastmod>2026-08-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://okarehha.in/monthly-car-wash</loc>
+    <lastmod>2026-08-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okarehha.in/home-cleaning</loc>
+    <lastmod>2026-08-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://okarehha.in/solar-panel-cleaning</loc>
+    <lastmod>2026-08-25</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>

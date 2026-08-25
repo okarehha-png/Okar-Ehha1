@@ -20,14 +20,19 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="car-wash" element={<ServiceDetailPage serviceSlug="car-wash" />} />
-          <Route path="interior-cleaning" element={<ServiceDetailPage serviceSlug="interior-cleaning" />} />
-          <Route path="car-detailing" element={<ServiceDetailPage serviceSlug="car-detailing" />} />
+          
+          
           <Route path="sofa-cleaning" element={<ServiceDetailPage serviceSlug="sofa-cleaning" />} />
           <Route path="water-tank-cleaning" element={<ServiceDetailPage serviceSlug="water-tank-cleaning" />} />
-                    <Route path="monthly-car-wash" element={<ServiceDetailPage serviceSlug="monthly-car-wash" />} />
-          <Route path="bike-wash" element={<ServiceDetailPage serviceSlug="bike-wash" />} />
+          <Route path="interior-cleaning" element={<ServiceDetailPage serviceSlug="interior-cleaning" />} />
+          <Route path="car-detailing" element={<ServiceDetailPage serviceSlug="car-detailing" />} />
+          <Route path="monthly-car-wash" element={<ServiceDetailPage serviceSlug="monthly-car-wash" />} />
           <Route path="home-cleaning" element={<ServiceDetailPage serviceSlug="home-cleaning" />} />
           <Route path="solar-panel-cleaning" element={<ServiceDetailPage serviceSlug="solar-panel-cleaning" />} />
+                    
+          <Route path="bike-wash" element={<ServiceDetailPage serviceSlug="bike-wash" />} />
+          
+          
           <Route path="services" element={<ServicesPage />} />
           <Route path="services/:slug" element={<ServiceDetailPage />} />
           <Route path="book" element={<BookingPage />} />
