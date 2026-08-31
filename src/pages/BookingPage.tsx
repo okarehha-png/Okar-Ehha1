@@ -70,6 +70,13 @@ export default function BookingPage() {
     });
 
     if (response.success) {
+      const whatsappMessage = encodeURIComponent(
+        `Hi Okar Ehha, I just booked a service. Here are the details:\n\nBooking ID: ${response.bookingId}\nService: ${selectedService?.title} (${selectedPackage?.name})\nName: ${formData.fullName}\nMobile: ${formData.mobile}\nAddress: ${formData.address}\nDate: ${formData.date}\nTime: ${formData.time}\nAmount: ₹${selectedPackage?.price || 0}`
+      );
+      // Auto-open WhatsApp in a new tab
+      window.open(`https://wa.me/919522000118?text=${whatsappMessage}`, '_blank');
+      
+      // Navigate to confirmation page
       navigate(`/confirmation/${response.bookingId}`);
     }
   };

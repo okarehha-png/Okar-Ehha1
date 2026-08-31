@@ -17,11 +17,13 @@ import {
   MapPin,
   Star
 } from "lucide-react";
+import { bookingService } from "../../services/bookingService";
 
 export default function DashboardPage() {
   const [bookings, setBookings] = useState<any[]>([]);
   const [filter, setFilter] = useState("All");
   const [activeTab, setActiveTab] = useState("dashboard");
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,10 +32,14 @@ export default function DashboardPage() {
       navigate("/admin/login");
     }
 
-    const stored = localStorage.getItem('okar_bookings');
-    if (stored) {
-      setBookings(JSON.parse(stored).reverse());
-    }
+    const fetchBookings = async () => {
+      setIsLoading(true);
+      const data = await bookingService.getAllBookings();
+      setBookings(data);
+      setIsLoading(false);
+    };
+
+    fetchBookings();
   }, [navigate]);
 
   const handleLogout = () => {
@@ -41,10 +47,10 @@ export default function DashboardPage() {
     navigate("/admin/login");
   };
 
-  const updateStatus = (id: string, newStatus: string) => {
+  const updateStatus = async (id: string, newStatus: string) => {
     const updated = bookings.map(b => b.id === id ? { ...b, status: newStatus } : b);
     setBookings(updated);
-    localStorage.setItem('okar_bookings', JSON.stringify(updated.slice().reverse()));
+    await bookingService.updateBookingStatus(id, newStatus);
   };
 
   const filteredBookings = filter === "All" ? bookings : bookings.filter(b => b.status === filter);

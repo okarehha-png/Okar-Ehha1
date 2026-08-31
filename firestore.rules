@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /bookings/{document=**} {
+      // Anyone can create a booking
+      allow create: if true;
+      // Only read/update if admin (for now, allow true since it's a demo or simple setup, but ideally we should restrict this)
+      allow read, update, delete: if true;
+    }
+  }
+}

@@ -91,6 +91,22 @@ export default function ContactPage() {
 
         </div>
       </div>
+
+      {/* Google Maps Location */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 h-[400px]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117466.86469083811!2d82.65651565451993!3d22.359239845347206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a278fb48398b1d9%3A0xc4eb1fba29045b12!2sKorba%2C%20Chhattisgarh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0, borderRadius: '0.75rem' }}
+            allowFullScreen={false}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Okar Ehha Location"
+          ></iframe>
+        </div>
+      </div>
     </div>
   );
 }

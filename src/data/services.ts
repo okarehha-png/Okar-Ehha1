@@ -1,5 +1,5 @@
-import waterTankImg from '../assets/images/white_sintex_tank_cleaning_1787639372101.jpg';
-import homeCleaningImg from '../assets/images/man_cleaning_home_1787638533125.jpg';
+import waterTankImg from '../assets/images/white_sintex_tank_cleaning_1787639372101.webp';
+import homeCleaningImg from '../assets/images/man_cleaning_home_1787638533125.webp';
 
 export interface Package {
   id: string;
