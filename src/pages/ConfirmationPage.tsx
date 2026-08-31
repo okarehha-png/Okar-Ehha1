@@ -98,10 +98,10 @@ export default function ConfirmationPage() {
                 Send Details via WhatsApp
               </a>
               <div className="grid grid-cols-2 gap-3">
-                <Link to="/track" className="w-full bg-gray-100 text-gray-900 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors">
-                  Track Status
+                <Link to={`/track?id=${booking.id}`} className="w-full bg-black text-white py-3 rounded-xl font-bold hover:bg-gray-800 transition-colors flex items-center justify-center gap-1.5 shadow">
+                  <span>Track Live 📍</span>
                 </Link>
-                <Link to="/" className="w-full bg-white border-2 border-gray-200 text-gray-900 py-3 rounded-xl font-semibold hover:border-gray-300 transition-colors">
+                <Link to="/" className="w-full bg-gray-100 text-gray-900 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors flex items-center justify-center">
                   Back to Home
                 </Link>
               </div>

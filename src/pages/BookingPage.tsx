@@ -15,6 +15,8 @@ type BookingData = {
   mobile: string;
   email: string;
   address: string;
+  areaZone?: string;
+  vehicleNumber?: string;
   landmark: string;
   notes: string;
 };
@@ -308,13 +310,45 @@ export default function BookingPage() {
                 placeholder="john@example.com"
               />
             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Korba Service Zone / Area *</label>
+                <select
+                  value={formData.areaZone || "Kosabadi"}
+                  onChange={e => updateForm("areaZone", e.target.value)}
+                  className="w-full p-4 bg-gray-50 border border-transparent rounded-xl focus:bg-white focus:ring-2 focus:ring-[#050505] outline-none transition-all font-bold text-sm text-gray-900 cursor-pointer"
+                >
+                  <option value="Kosabadi">Kosabadi / Surya Apt</option>
+                  <option value="Transport Nagar">Transport Nagar</option>
+                  <option value="Balco Colony">Balco Township & Colony</option>
+                  <option value="NTPC Township">NTPC Township & Jamnipali</option>
+                  <option value="Kusmunda">Kusmunda / Gevra</option>
+                  <option value="Darri">Darri Barrage Colony</option>
+                  <option value="Rajgamar">Rajgamar Road</option>
+                  <option value="Budhwari">Budhwari & Rampur</option>
+                  <option value="Other Korba Area">Other Korba Locality</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Vehicle No. / Item Model (Optional)</label>
+                <input
+                  type="text"
+                  value={formData.vehicleNumber || ""}
+                  onChange={e => updateForm("vehicleNumber", e.target.value)}
+                  className="w-full p-4 bg-gray-50 border border-transparent rounded-xl focus:bg-white focus:ring-2 focus:ring-[#050505] outline-none transition-all font-medium text-sm text-gray-900 uppercase"
+                  placeholder="e.g. CG 12 BD 4501"
+                />
+              </div>
+            </div>
+
             <div>
               <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Complete Address *</label>
               <textarea
                 required
                 value={formData.address}
                 onChange={e => updateForm("address", e.target.value)}
-                className="w-full p-4 bg-gray-50 border border-transparent rounded-xl focus:bg-white focus:ring-2 focus:ring-[#050505] outline-none transition-all font-medium text-sm text-gray-900 min-h-[120px] resize-y"
+                className="w-full p-4 bg-gray-50 border border-transparent rounded-xl focus:bg-white focus:ring-2 focus:ring-[#050505] outline-none transition-all font-medium text-sm text-gray-900 min-h-[100px] resize-y"
                 placeholder="House No, Street, Locality, Korba"
               />
             </div>

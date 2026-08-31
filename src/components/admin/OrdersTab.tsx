@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { Booking, BookingStatus, PaymentStatus, StaffMember, ServiceItem } from "../../types/admin";
 import { whatsAppTemplates, exportToCSV } from "../../services/adminService";
+import InvoiceModal from "../common/InvoiceModal";
 
 interface OrdersTabProps {
   bookings: Booking[];
@@ -63,6 +64,7 @@ export default function OrdersTab({
   const [selectedBooking, setSelectedBooking] = useState<Booking | null>(selectedBookingForModal || null);
   const [isNewBookingModalOpen, setIsNewBookingModalOpen] = useState(false);
   const [paymentModalOpen, setPaymentModalOpen] = useState(false);
+  const [invoiceModalOpen, setInvoiceModalOpen] = useState(false);
   const [paymentAmountInput, setPaymentAmountInput] = useState<number>(0);
   const [paymentMethodInput, setPaymentMethodInput] = useState<string>("UPI");
 
@@ -577,7 +579,28 @@ export default function OrdersTab({
                 <span>Delete</span>
               </button>
 
-              <div className="flex gap-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setInvoiceModalOpen(true)}
+                  className="px-3 py-2 bg-gray-800 hover:bg-gray-700 text-amber-400 border border-amber-500/30 rounded-xl text-xs font-bold flex items-center gap-1.5"
+                >
+                  <FileText className="w-3.5 h-3.5" />
+                  <span>Print Bill</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const techMsg = encodeURIComponent(
+                      `🚨 *NEW JOB DISPATCH - OKAR EHHA*\n\nBooking: #${selectedBooking.id}\nCustomer: ${selectedBooking.fullName}\nPhone: ${selectedBooking.mobile}\nService: ${selectedBooking.serviceName}\nAddress: ${selectedBooking.address}\nSlot: ${selectedBooking.date} @ ${selectedBooking.time}\nAmount: ₹${selectedBooking.finalAmount || selectedBooking.amount}\n\n📍 Map Route: https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedBooking.address + ', Korba')}`
+                    );
+                    window.open(`https://wa.me/?text=${techMsg}`, '_blank');
+                  }}
+                  className="px-3 py-2 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 rounded-xl text-xs font-bold flex items-center gap-1.5"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>Dispatch WhatsApp</span>
+                </button>
                 <button
                   type="button"
                   onClick={() => setSelectedBooking(null)}
@@ -599,6 +622,15 @@ export default function OrdersTab({
             </div>
           </div>
         </div>
+      )}
+
+      {/* INVOICE PRINT MODAL */}
+      {selectedBooking && (
+        <InvoiceModal
+          booking={selectedBooking}
+          isOpen={invoiceModalOpen}
+          onClose={() => setInvoiceModalOpen(false)}
+        />
       )}
 
       {/* RECORD PAYMENT MODAL */}

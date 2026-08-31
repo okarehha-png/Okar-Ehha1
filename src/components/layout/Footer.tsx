@@ -46,13 +46,13 @@ export default function Footer() {
             <h3 className="text-[11px] uppercase tracking-widest text-gray-500 font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li><Link to="/" className="text-gray-600 hover:text-black transition-colors text-sm">Home</Link></li>
-              <li><Link to="/car-wash" className="text-gray-600 hover:text-black transition-colors text-sm">Car Wash</Link></li>
-              <li><Link to="/bike-wash" className="text-gray-600 hover:text-black transition-colors text-sm">Bike Wash</Link></li>
-              <li><Link to="/sofa-cleaning" className="text-gray-600 hover:text-black transition-colors text-sm">Sofa Cleaning</Link></li>
-              <li><Link to="/water-tank-cleaning" className="text-gray-600 hover:text-black transition-colors text-sm">Water Tank Cleaning</Link></li>
+              <li><Link to="/subscriptions" className="text-amber-700 font-bold hover:text-black transition-colors text-sm">✨ Passes & Monthly AMC</Link></li>
+              <li><Link to="/track" className="text-gray-600 hover:text-black transition-colors text-sm">Live Booking Tracker</Link></li>
               <li><Link to="/book" className="text-gray-600 hover:text-black transition-colors text-sm">Book Service</Link></li>
               <li><Link to="/about" className="text-gray-600 hover:text-black transition-colors text-sm">About</Link></li>
               <li><Link to="/contact" className="text-gray-600 hover:text-black transition-colors text-sm">Contact</Link></li>
+              <li><Link to="/field" className="text-gray-500 hover:text-gray-900 transition-colors text-xs">Technician Mobile App</Link></li>
+              <li><Link to="/admin" className="text-gray-400 hover:text-gray-900 transition-colors text-xs">Admin Management</Link></li>
             </ul>
           </div>
 

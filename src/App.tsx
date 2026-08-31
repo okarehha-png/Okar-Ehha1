@@ -6,6 +6,8 @@ import ServiceDetailPage from "./pages/ServiceDetailPage";
 import BookingPage from "./pages/BookingPage";
 import ConfirmationPage from "./pages/ConfirmationPage";
 import TrackingPage from "./pages/TrackingPage";
+import SubscriptionsPage from "./pages/SubscriptionsPage";
+import TechnicianPortalPage from "./pages/TechnicianPortalPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/admin/LoginPage";
@@ -22,7 +24,6 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="car-wash" element={<ServiceDetailPage serviceSlug="car-wash" />} />
           
-          
           <Route path="sofa-cleaning" element={<ServiceDetailPage serviceSlug="sofa-cleaning" />} />
           <Route path="water-tank-cleaning" element={<ServiceDetailPage serviceSlug="water-tank-cleaning" />} />
           <Route path="interior-cleaning" element={<ServiceDetailPage serviceSlug="interior-cleaning" />} />
@@ -33,17 +34,24 @@ export default function App() {
                     
           <Route path="bike-wash" element={<ServiceDetailPage serviceSlug="bike-wash" />} />
           
-          
           <Route path="services" element={<ServicesPage />} />
           <Route path="services/:slug" element={<ServiceDetailPage />} />
+          <Route path="subscriptions" element={<SubscriptionsPage />} />
+          <Route path="passes" element={<SubscriptionsPage />} />
           <Route path="book" element={<BookingPage />} />
           <Route path="book/:slug" element={<BookingPage />} />
           <Route path="confirmation/:id" element={<ConfirmationPage />} />
           <Route path="track" element={<TrackingPage />} />
+          <Route path="track/:id" element={<TrackingPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
         </Route>
         
+        {/* Mobile Field App for Technicians */}
+        <Route path="/field" element={<TechnicianPortalPage />} />
+        <Route path="/technician" element={<TechnicianPortalPage />} />
+        <Route path="/staff-app" element={<TechnicianPortalPage />} />
+
         {/* Admin Routes without main Layout */}
         <Route path="/admin">
           <Route index element={<AdminProtectedRoute><DashboardPage /></AdminProtectedRoute>} />

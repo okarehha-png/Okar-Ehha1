@@ -25,6 +25,7 @@ export interface Booking {
   vehicleNumber?: string;
   address: string;
   location?: string;
+  areaZone?: string;
   date: string;
   time: string;
   amount: number;
@@ -36,7 +37,15 @@ export interface Booking {
   paymentStatus: PaymentStatus | string;
   status: BookingStatus;
   assignedStaff?: string;
+  assignedStaffPhone?: string;
   notes?: string;
+  technicianNotes?: string;
+  beforePhotoUrl?: string;
+  afterPhotoUrl?: string;
+  customerRating?: number;
+  customerReview?: string;
+  isSubscription?: boolean;
+  subscriptionPlanId?: string;
   createdAt: string;
 }
 

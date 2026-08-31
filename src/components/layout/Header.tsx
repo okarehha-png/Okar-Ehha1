@@ -14,6 +14,7 @@ export default function Header() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
+    { name: "Passes & AMC", path: "/subscriptions" },
     { name: "Book Service", path: "/book" },
     { name: "Track Booking", path: "/track" },
     { name: "About", path: "/about" },
