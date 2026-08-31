@@ -1,22 +1,24 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { Search, CheckCircle2, Circle } from "lucide-react";
+import { bookingService } from "../services/bookingService";
 
 export default function TrackingPage() {
   const [trackingId, setTrackingId] = useState("");
   const [booking, setBooking] = useState<any>(null);
   const [error, setError] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSearch = (e: FormEvent) => {
+  const handleSearch = async (e: FormEvent) => {
     e.preventDefault();
     if (!trackingId.trim()) return;
 
     setHasSearched(true);
-    const stored = localStorage.getItem('okar_bookings');
-    if (stored) {
-      const bookings = JSON.parse(stored);
-      const found = bookings.find((b: any) => b.id.toUpperCase() === trackingId.trim().toUpperCase());
+    setIsLoading(true);
+    
+    try {
+      const found = await bookingService.getBookingDetails(trackingId.trim());
       if (found) {
         setBooking(found);
         setError("");
@@ -24,9 +26,11 @@ export default function TrackingPage() {
         setBooking(null);
         setError("No booking found with this ID.");
       }
-    } else {
+    } catch (err) {
       setBooking(null);
-      setError("No booking found with this ID.");
+      setError("An error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -50,7 +54,7 @@ export default function TrackingPage() {
         
         <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Track Your Booking</h1>
-          <p className="text-gray-500 mb-8">Enter your Booking ID (e.g., OE-2026-1234) to see the current status.</p>
+          <p className="text-gray-500 mb-8">Enter your Booking ID to see the current status.</p>
           
           <form onSubmit={handleSearch} className="flex gap-2 max-w-md mx-auto">
             <div className="relative flex-grow">
@@ -61,13 +65,15 @@ export default function TrackingPage() {
                 onChange={e => setTrackingId(e.target.value)}
                 placeholder="Enter Booking ID"
                 className="w-full pl-11 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#050505] focus:border-transparent outline-none uppercase"
+                disabled={isLoading}
               />
             </div>
             <button
               type="submit"
-              className="bg-white text-gray-900 px-6 py-4 rounded-xl font-bold hover:bg-black hover:text-white transition-colors whitespace-nowrap"
+              disabled={isLoading}
+              className="bg-white text-gray-900 px-6 py-4 rounded-xl font-bold hover:bg-black hover:text-white transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Track
+              {isLoading ? "Searching..." : "Track"}
             </button>
           </form>
         </div>
