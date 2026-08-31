@@ -6,8 +6,6 @@ import { motion } from "motion/react";
 import { Helmet } from "react-helmet-async";
 import carWashImg from "../assets/images/man_washing_car_1787638514237.webp";
 
-import BeforeAfterGallery from "../components/BeforeAfterGallery";
-
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
@@ -204,9 +202,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Before & After Gallery */}
-      <BeforeAfterGallery />
 
       {/* Testimonials */}
       <section className="py-16 bg-white border-t border-gray-100">
