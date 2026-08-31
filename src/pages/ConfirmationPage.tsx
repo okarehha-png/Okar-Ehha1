@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { CheckCircle2, MessageCircle, MapPin, Calendar, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
+import { bookingService } from "../services/bookingService";
 
 export default function ConfirmationPage() {
   const { id } = useParams<{ id: string }>();
@@ -8,14 +9,25 @@ export default function ConfirmationPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Retrieve from localStorage for now
-    const stored = localStorage.getItem('okar_bookings');
-    if (stored) {
-      const bookings = JSON.parse(stored);
-      const found = bookings.find((b: any) => b.id === id);
-      if (found) setBooking(found);
-    }
-    setLoading(false);
+    const fetchBooking = async () => {
+      if (id) {
+        const found = await bookingService.getBookingDetails(id);
+        if (found) {
+          setBooking(found);
+        } else {
+          // Fallback to local storage if not found in Firebase (for backward compatibility if needed)
+          const stored = localStorage.getItem('okar_bookings');
+          if (stored) {
+            const bookings = JSON.parse(stored);
+            const localFound = bookings.find((b: any) => b.id === id);
+            if (localFound) setBooking(localFound);
+          }
+        }
+      }
+      setLoading(false);
+    };
+    
+    fetchBooking();
   }, [id]);
 
   if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;

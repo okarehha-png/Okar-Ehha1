@@ -10,6 +10,7 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/admin/LoginPage";
 import DashboardPage from "./pages/admin/DashboardPage";
+import AdminProtectedRoute from "./components/admin/AdminProtectedRoute";
 import ScrollToTop from "./components/layout/ScrollToTop";
 
 export default function App() {
@@ -46,7 +47,7 @@ export default function App() {
         {/* Admin Routes without main Layout */}
         <Route path="/admin">
           <Route path="login" element={<LoginPage />} />
-          <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="dashboard" element={<AdminProtectedRoute><DashboardPage /></AdminProtectedRoute>} />
         </Route>
       </Routes>
     </BrowserRouter>

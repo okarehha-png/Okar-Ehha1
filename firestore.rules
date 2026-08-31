@@ -1,11 +1,25 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /bookings/{document=**} {
+    // Admin access function
+    function isAdmin() {
+      return request.auth != null;
+    }
+
+    match /bookings/{bookingId} {
       // Anyone can create a booking
       allow create: if true;
-      // Only read/update if admin (for now, allow true since it's a demo or simple setup, but ideally we should restrict this)
-      allow read, update, delete: if true;
+      
+      // Anyone with the specific Booking ID can view it (used for Tracking and Confirmation)
+      allow get: if true;
+      
+      // Only Admins can list all bookings or modify/delete them
+      allow list, update, delete: if isAdmin();
+    }
+    
+    // Default deny for any other collections
+    match /{document=**} {
+      allow read, write: if false;
     }
   }
 }

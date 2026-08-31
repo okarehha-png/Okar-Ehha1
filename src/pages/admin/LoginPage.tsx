@@ -1,21 +1,34 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
-import { Lock } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Lock, Loader2 } from "lucide-react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../lib/firebase";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleLogin = (e: FormEvent) => {
+  const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
-    if (email.trim() === "bhanu@okarehha.in" && password.trim() === "Bhavika@1608") {
-      localStorage.setItem("okar_admin_auth", "true");
-      navigate("/admin/dashboard");
-    } else {
-      setError("Invalid credentials. Please verify your access details.");
+    setError("");
+    setLoading(true);
+    
+    try {
+      await signInWithEmailAndPassword(auth, email.trim(), password);
+      // Navigation is handled by AdminProtectedRoute if already authenticated, 
+      // but we explicitly navigate here to the intended destination or default to dashboard
+      const from = location.state?.from?.pathname || "/admin/dashboard";
+      navigate(from, { replace: true });
+    } catch (err: any) {
+      console.error(err);
+      setError("Invalid credentials. Please verify your access details or ensure your account has been created.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -67,9 +80,10 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            className="w-full bg-black text-white px-6 py-4 rounded-xl font-bold text-base hover:bg-gray-900 transition-colors mt-4 shadow-sm"
+            disabled={loading}
+            className="w-full bg-black text-white px-6 py-4 rounded-xl font-bold text-base hover:bg-gray-900 transition-colors mt-4 shadow-sm disabled:opacity-50 flex items-center justify-center gap-2"
           >
-            Authenticate
+            {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Authenticate"}
           </button>
         </form>
       </div>

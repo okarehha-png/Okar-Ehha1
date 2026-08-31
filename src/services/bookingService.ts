@@ -1,5 +1,5 @@
 import { db } from '../lib/firebase';
-import { collection, addDoc, getDoc, getDocs, doc, updateDoc, query, orderBy } from 'firebase/firestore';
+import { collection, addDoc, getDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy } from 'firebase/firestore';
 
 export interface BookingData {
   serviceId: string;
@@ -15,11 +15,12 @@ export interface BookingData {
 }
 
 export const bookingService = {
-  createBooking: async (bookingData: BookingData & { amount: number, serviceName: string, packageName: string }) => {
+  createBooking: async (bookingData: BookingData & { amount: number, serviceName: string, packageName: string, vehicleType?: string }) => {
     try {
       const docRef = await addDoc(collection(db, 'bookings'), {
         ...bookingData,
         status: 'Received',
+        paymentStatus: 'Pending',
         createdAt: new Date().toISOString()
       });
       return { success: true, bookingId: docRef.id };
@@ -65,6 +66,28 @@ export const bookingService = {
       return true;
     } catch (e) {
       console.error("Error updating document: ", e);
+      return false;
+    }
+  },
+
+  updatePaymentStatus: async (bookingId: string, paymentStatus: string) => {
+    try {
+      const docRef = doc(db, 'bookings', bookingId);
+      await updateDoc(docRef, { paymentStatus });
+      return true;
+    } catch (e) {
+      console.error("Error updating document: ", e);
+      return false;
+    }
+  },
+
+  deleteBooking: async (bookingId: string) => {
+    try {
+      const docRef = doc(db, 'bookings', bookingId);
+      await deleteDoc(docRef);
+      return true;
+    } catch (e) {
+      console.error("Error deleting document: ", e);
       return false;
     }
   }
