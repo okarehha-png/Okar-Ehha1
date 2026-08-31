@@ -1,0 +1,213 @@
+{
+  "entities": {
+    "bookings": {
+      "title": "Bookings",
+      "description": "Customer service bookings and orders",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string" },
+        "mobile": { "type": "string" },
+        "email": { "type": "string" },
+        "serviceName": { "type": "string" },
+        "packageName": { "type": "string" },
+        "vehicleType": { "type": "string" },
+        "vehicleNumber": { "type": "string" },
+        "address": { "type": "string" },
+        "location": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "amount": { "type": "number" },
+        "discount": { "type": "number" },
+        "finalAmount": { "type": "number" },
+        "paymentReceived": { "type": "number" },
+        "pendingAmount": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "paymentStatus": { "type": "string" },
+        "status": { "type": "string" },
+        "assignedStaff": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["fullName", "mobile", "serviceName", "date", "status"]
+    },
+    "customers": {
+      "title": "Customers",
+      "description": "Customer database for CRM tracking",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "mobile": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "totalBookings": { "type": "number" },
+        "completedBookings": { "type": "number" },
+        "cancelledBookings": { "type": "number" },
+        "totalSpent": { "type": "number" },
+        "pendingAmount": { "type": "number" },
+        "lastService": { "type": "string" },
+        "customerSince": { "type": "string" }
+      },
+      "required": ["name", "mobile"]
+    },
+    "services": {
+      "title": "Services",
+      "description": "Catalog of services and pricing",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "estimatedDuration": { "type": "string" },
+        "description": { "type": "string" },
+        "isActive": { "type": "boolean" },
+        "packages": { "type": "string" }
+      },
+      "required": ["name", "price"]
+    },
+    "expenses": {
+      "title": "Expenses",
+      "description": "Business expense entries",
+      "type": "object",
+      "properties": {
+        "date": { "type": "string" },
+        "category": { "type": "string" },
+        "description": { "type": "string" },
+        "amount": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "paidBy": { "type": "string" },
+        "receipt": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["category", "amount", "date"]
+    },
+    "transactions": {
+      "title": "Transactions",
+      "description": "Cash, UPI, and Bank ledger entries",
+      "type": "object",
+      "properties": {
+        "date": { "type": "string" },
+        "account": { "type": "string" },
+        "type": { "type": "string" },
+        "amount": { "type": "number" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "referenceId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["account", "type", "amount", "date"]
+    },
+    "inventory": {
+      "title": "Inventory",
+      "description": "Stock items and consumables",
+      "type": "object",
+      "properties": {
+        "productName": { "type": "string" },
+        "openingStock": { "type": "number" },
+        "purchases": { "type": "number" },
+        "used": { "type": "number" },
+        "currentStock": { "type": "number" },
+        "unit": { "type": "string" },
+        "costPerUnit": { "type": "number" },
+        "supplier": { "type": "string" },
+        "minStockLevel": { "type": "number" },
+        "lastUpdated": { "type": "string" }
+      },
+      "required": ["productName", "currentStock", "unit"]
+    },
+    "purchases": {
+      "title": "Purchases",
+      "description": "Stock purchases from suppliers",
+      "type": "object",
+      "properties": {
+        "supplierName": { "type": "string" },
+        "date": { "type": "string" },
+        "productName": { "type": "string" },
+        "quantity": { "type": "number" },
+        "rate": { "type": "number" },
+        "totalAmount": { "type": "number" },
+        "paidAmount": { "type": "number" },
+        "pendingAmount": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["supplierName", "productName", "quantity", "totalAmount"]
+    },
+    "suppliers": {
+      "title": "Suppliers",
+      "description": "Supplier database and dues",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "mobile": { "type": "string" },
+        "products": { "type": "string" },
+        "totalPurchases": { "type": "number" },
+        "pendingAmount": { "type": "number" },
+        "lastPurchaseDate": { "type": "string" }
+      },
+      "required": ["name", "mobile"]
+    },
+    "staff": {
+      "title": "Staff",
+      "description": "Employee profiles and payroll settings",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "mobile": { "type": "string" },
+        "role": { "type": "string" },
+        "joiningDate": { "type": "string" },
+        "salary": { "type": "number" },
+        "status": { "type": "string" },
+        "assignedJobsCount": { "type": "number" },
+        "completedJobsCount": { "type": "number" }
+      },
+      "required": ["name", "mobile", "role", "salary"]
+    },
+    "attendance": {
+      "title": "Attendance",
+      "description": "Daily employee attendance logs",
+      "type": "object",
+      "properties": {
+        "staffId": { "type": "string" },
+        "staffName": { "type": "string" },
+        "date": { "type": "string" },
+        "status": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["staffId", "date", "status"]
+    },
+    "salaries": {
+      "title": "Salaries",
+      "description": "Monthly salary disbursements",
+      "type": "object",
+      "properties": {
+        "staffId": { "type": "string" },
+        "staffName": { "type": "string" },
+        "month": { "type": "string" },
+        "basicSalary": { "type": "number" },
+        "incentive": { "type": "number" },
+        "overtime": { "type": "number" },
+        "advanceDeduction": { "type": "number" },
+        "finalSalary": { "type": "number" },
+        "paymentDate": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["staffId", "month", "finalSalary", "status"]
+    },
+    "notifications": {
+      "title": "Notifications",
+      "description": "System and administrative alerts",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "read": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["title", "message", "type"]
+    }
+  }
+}

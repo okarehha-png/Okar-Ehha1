@@ -1,24 +1,67 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // TEMPORARY: Allow access for preview environment testing
-    // In production, this should be: return request.auth != null;
+    
+    // Helper function for admin check
     function isAdmin() {
-      return true; 
+      return true; // Allows test mode & admin dashboard access in preview
     }
 
     match /bookings/{bookingId} {
-      // Anyone can create a booking
       allow create: if true;
-      
-      // Anyone with the specific Booking ID can view it (used for Tracking and Confirmation)
       allow get: if true;
-      
-      // Only Admins can list all bookings or modify/delete them
       allow list, update, delete: if isAdmin();
     }
-    
-    // Default deny for any other collections
+
+    match /customers/{customerId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /services/{serviceId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /expenses/{expenseId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /transactions/{txId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /inventory/{itemId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /purchases/{purchaseId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /suppliers/{supplierId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /staff/{staffId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /attendance/{attId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /salaries/{salaryId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /notifications/{notifId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /admin_settings/{settingId} {
+      allow read, write: if isAdmin();
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Search, Star, ShieldCheck, Check, Car, Bike, Sofa, Droplets, Home, Sparkles, Sun } from "lucide-react";
 import { servicesData } from "../data/services";

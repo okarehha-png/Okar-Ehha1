@@ -46,6 +46,7 @@ export default function App() {
         
         {/* Admin Routes without main Layout */}
         <Route path="/admin">
+          <Route index element={<AdminProtectedRoute><DashboardPage /></AdminProtectedRoute>} />
           <Route path="login" element={<LoginPage />} />
           <Route path="dashboard" element={<AdminProtectedRoute><DashboardPage /></AdminProtectedRoute>} />
         </Route>
